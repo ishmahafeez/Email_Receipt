@@ -74,6 +74,27 @@ function handleCheckboxEdit(e) {
         Logger.log("- Guest: " + email);
         Logger.log("- Send Invites: true");
 
+        // Duplicate the Google Doc template
+        const templateDocId = "1zzJ7jl4n5h741IDiBo4K2Ab9oAHJL-yFdJb0PdhD8gI";
+        const templateDoc = DriveApp.getFileById(templateDocId);
+        const newDocName = `Rough Map ${getValue("Character 1")} and ${getValue("Character 2")} of Us Outline`;
+        const newDoc = templateDoc.makeCopy(newDocName);
+        
+        Logger.log("📄 Created new document: " + newDocName);
+        Logger.log("New document ID: " + newDoc.getId());
+
+        // Send the document via email
+        const docUrl = newDoc.getUrl();
+        const emailBody = `A new document has been created for the meeting:\n\nDocument Name: ${newDocName}\nDocument Link: ${docUrl}`;
+        
+        MailApp.sendEmail({
+          to: "ishmmaps@gmail.com",
+          subject: `New Map Document Created: ${newDocName}`,
+          body: emailBody
+        });
+        
+        Logger.log("📧 Email sent with document link to ishmmaos@gmail.com");
+
         // Create the event with guests
         const event = calendar.createEvent(
           "IshMaps - Map Of US",
@@ -196,6 +217,28 @@ function testSimpleEmail() {
 
 function testCalendarEvent() {
   try {
+    // Test document duplication
+    const templateDocId = "1zzJ7jl4n5h741IDiBo4K2Ab9oAHJL-yFdJb0PdhD8gI";
+    const templateDoc = DriveApp.getFileById(templateDocId);
+    const newDocName = "Test Document - Map of Us Outline";
+    const newDoc = templateDoc.makeCopy(newDocName);
+    
+    Logger.log("📄 Created new document: " + newDocName);
+    Logger.log("New document ID: " + newDoc.getId());
+
+    // Send test email with document
+    const docUrl = newDoc.getUrl();
+    const emailBody = `A test document has been created:\n\nDocument Name: ${newDocName}\nDocument Link: ${docUrl}`;
+    
+    MailApp.sendEmail({
+      to: "ishmmaps@gmail.com",
+      subject: `Test Document Created: ${newDocName}`,
+      body: emailBody
+    });
+    
+    Logger.log("📧 Email sent with document link to ishmmaps@gmail.com");
+
+    // Create test calendar event
     const calendar = CalendarApp.getDefaultCalendar();
     const startDate = new Date(); // Current time
     const endDate = new Date();
@@ -206,7 +249,7 @@ function testCalendarEvent() {
       startDate,
       endDate,
       {
-        description: "custom maps - Test Event"
+        description: "custom maps - Test Event\nDocument Link: " + docUrl
       }
     );
     
@@ -216,9 +259,9 @@ function testCalendarEvent() {
     Logger.log("Start Time: " + event.getStartTime());
     Logger.log("End Time: " + event.getEndTime());
     
-    return "Test event created successfully! Check the logs for details.";
+    return "Test completed successfully! Check the logs for details.";
   } catch (error) {
-    Logger.log("❌ Error creating test calendar event: " + error.toString());
-    return "Error creating test event: " + error.toString();
+    Logger.log("❌ Error in test: " + error.toString());
+    return "Error during test: " + error.toString();
   }
 }
