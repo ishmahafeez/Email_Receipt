@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Receipt</title>
+  <style>
+    @font-face {
+      font-family: 'Futural';
+      src: url('FuturaHandwritten.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f2e9;
+      margin: 0;
+      padding: 0;
+      width: 439px;
+    }
+
+    .container {
+      padding: 32px;
+      position: relative;
+    }
+
+    .futural {
+      font-family: 'Futural', Arial, sans-serif;
+    }
+
+    .date {
+      position: absolute;
+      top: 33px;
+      left: 32px;
+    }
+
+    .instagram-icon {
+  position: absolute;
+  top: 33px;
+  right: 25px;
+  width: 29px;
+  height: 29px;
+}
+.download-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+}
+
+
+
+    .logo-header {
+      margin: 40px auto 0;
+      width: 350px;
+      height: 100px;
+      background-image: url('map_of_us _header.PNG');
+      background-size: cover;
+    }
+
+    .logo-main {
+      margin: -20px auto;
+      width: 200px;
+      height: 200px;
+      background-image: url('logo.png');
+      background-size: cover;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 20px 0 5px;
+    }
+
+    .divider {
+      height: 1px;
+      border-top: 2px dashed black;
+      margin: 10px 0;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      margin: 5px 0;
+    }
+
+    .highlight-btn {
+  background-color: #967BCA;
+  border-radius: 12px;
+  width: 340px;
+  height: 70px;
+  margin: 25px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+
+
+    .dimensions,
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .footer a {
+      color: #967bd3;
+      text-decoration: none;
+    }
+
+    .bg-footer {
+      width: 100%;
+      height: 108px;
+      background-image: url('footer-placeholder.png');
+      background-size: cover;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Futural Font Section -->
+    <div class="futural">
+      <div class="date">Date: 4/9/24</div>
+      <div class="instagram-icon" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 24 24" fill="#967BCA">
+          <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm9.75 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM12 7.25A4.75 4.75 0 1 1 7.25 12 4.75 4.75 0 0 1 12 7.25zm0 1.5a3.25 3.25 0 1 0 3.25 3.25A3.25 3.25 0 0 0 12 8.75z"/>
+        </svg>
+      </div>
+      
+
+      <div class="logo-header"></div>
+      <div class="logo-main"></div>
+
+      <div class="section-title">RECEIPT</div>
+      <div class="divider"></div>
+
+      <div class="item">
+        <span>Basic Map Of Us - 5 Locations</span>
+        <span>$75</span>
+      </div>
+      <div class="item">
+        <span style="padding-left: 20px;">↳Character 1: Ishma</span>
+      </div>
+      <div class="item">
+        <span style="padding-left: 20px;">↳Character 2: Shiza</span>      </div>
+      <div class="item">
+        <span>Frame</span>
+        <span>$5</span>
+      </div>
+      <div class="divider"></div>
+
+      <div class="item">
+        <span>SubTotal:</span>
+        <span>$80</span>
+      </div>
+      <div class="divider"></div>
+    </div>
+
+    <!-- Default Font Section -->
+    <div class="highlight-btn">
+      <span>High Resolution File</span>
+      <svg xmlns="[http://www.w3.org/2000/svg"](http://www.w3.org/2000/svg") width="30" height="30" viewBox="0 0 24 24" fill="#ffffff" style="margin-left: 20px;">
+        <path d="M12 3a1 1 0 0 1 1 1v10.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4 4a.999.999 0 0 1-1.414 0l-4-4a1 1 0 1 1 1.414-1.414L11 14.586V4a1 1 0 0 1 1-1zM5 18a1 1 0 1 0 0 2h14a1 1 0 1 0 0-2H5z"/>
+      </svg>
+    </div>
+    
+
+    <div class="dimensions">Print Dimensions: 12 x 16.5 inch</div>
+    <div class="footer" style="font-style: italic; font-size: 18px;">Thank you for your purchase!</div>
+    <div class="footer"><a href="http://www.ishmaps.com">www.ishmaps.com</a></div>
+
+    <div class="bg-footer"></div>
+  </div>
+</body>
+</html>

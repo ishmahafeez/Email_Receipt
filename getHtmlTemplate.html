@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Receipt</title>
+  <meta name="color-scheme" content="light">
+</head>
+<body style="margin: 0; padding: 0;" bgcolor="#f5f2e9 !important;" >
+  <div style="background: #f5f2e9 url('https://singlecolorimage.com/get/f5f2e9/1x1') repeat !important;; color: #000 !important; font-family: Arial, sans-serif; max-width: 439px; margin: auto; padding: 32px;">
+    
+<!-- Top: Date on left, Instagram icon (linked) on right -->
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; width: 100%;">
+  <span style="font-family: 'Futural', Arial, sans-serif; font-size: 14px;">Date: {{date}}</span>
+  <a href="https://www.instagram.com/ish.map?igsh=MWVwcGh1cGd5amJheA==" target="_blank" style="margin-left: auto;">
+    <img src="https://res.cloudinary.com/dqeakzmb5/image/upload/v1745433289/vbzpjy6s4du2ey7a9jrn.png" alt="Instagram" width="24" height="24" style="display: block;">
+  </a>
+</div>
+
+
+
+<!-- Logo Header -->
+<div style="text-align: center; margin: 0 0 10px;">
+  <img src="https://res.cloudinary.com/dqeakzmb5/image/upload/v1745430436/wnguw7xyokw55lzrwa0x.png" alt="Logo Header" style="max-width: 100%; height: auto;">
+</div>
+
+
+    <!-- Main Logo -->
+<div style="text-align: center; margin-top: 0;">
+      <img src="https://res.cloudinary.com/dqeakzmb5/image/upload/v1745430436/csxzgrrwm7igsqrh7kwo.png" alt="Main Logo" width="200" height="200">
+    </div>
+
+    <!-- Receipt Section -->
+    <div style="margin-top: 20px; font-family: 'Futural', Arial, sans-serif; color: #511c60;">
+  <h2 style="margin-bottom: 10px; color: #511c60;">RECEIPT</h2>
+  <hr style="border: none; border-top: 2px dashed #000;">
+
+  <div style="display: flex; justify-content: space-between;">
+    <span>{{mapTemplate}}</span>
+    <!-- <span style="text-align: right;"> : {{price}}</span> -->
+  </div>
+
+  <div style="padding-left: 20px;">↳ Character 1: {{character1}}</div>
+  <div style="padding-left: 20px;">↳ Character 2: {{character2}}</div>
+
+  {{frameSection}}
+
+  <hr style="border: none; border-top: 2px dashed #000;">
+
+  <div style="display: flex; justify-content: space-between;">
+    <span>SubTotal </span>
+    <span style="text-align: right;"> : {{subtotal}}</span>
+  </div>
+
+  <hr style="border: none; border-top: 2px dashed #000;">
+</div>
+
+    <!-- High Resolution Button -->
+    <div style="text-align: center; margin: 30px 0;">
+      <a href="{{downloadLink}}" target="_blank" style="text-decoration: none;">
+        <div style="background-color: #967BCA; color: #fff; font-weight: bold; font-size: 18px; padding: 20px 30px; border-radius: 12px; display: inline-flex; align-items: center; gap: 10px;">
+<span style="color: white;">High Resolution File</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#ffffff" viewBox="0 0 24 24">
+            <path d="M12 3a1 1 0 0 1 1 1v10.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4 4a.999.999 0 0 1-1.414 0l-4-4a1 1 0 1 1 1.414-1.414L11 14.586V4a1 1 0 0 1 1-1zM5 18a1 1 0 1 0 0 2h14a1 1 0 1 0 0-2H5z"/>
+          </svg>
+        </div>
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <div style="background: #f3e8ff; color: #6d28d9; border-radius: 8px; padding: 10px 24px; font-size: 14px; text-align: center; line-height: 1.7;">
+  <div>Print Dimensions: </div>
+    <div>12 x 16.5 inch OR 16 x 20 inch</div>
+  <div>Paper Type: Cartridge Paper</div>
+</div>
+    <div style="text-align: center; font-size: 16px; font-style: italic; margin-top: 10px;">
+      Thank you for your purchase!
+    </div>
+    <div style="text-align: center; font-size: 14px; margin-top: 8px;">
+      <a href="https://www.ishmaps.com" style="color: #967BCA; text-decoration: none;">www.ishmaps.com</a>
+    </div>
+
+  </div>
+</body>
+</html>
