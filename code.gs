@@ -171,7 +171,7 @@ function handleCheckboxEdit(e) {
 
     let html = receipt();
 
-    const formattedDate = Utilities.formatDate(new Date(timestamp), Session.getScriptTimeZone(), 'M/d/yy');
+    const formattedDate = Utilities.formatDate(new Date(), Session.getScriptTimeZone(), 'M/d/yy');
     html = html.replace('{{date}}', formattedDate);
     html = html.replace('{{mapTemplate}}', mapTemplate);
     html = html.replace('{{character1}}', character1 || '');
@@ -219,6 +219,38 @@ function receipt() {
 
 function onEdit(e) {
   handleCheckboxEdit(e);
+  addCheckboxesToNewRow(e);
+}
+
+function addCheckboxesToNewRow(e) {
+  if (!e) return;
+  
+  const sheet = e.source.getActiveSheet();
+  const row = e.range.getRow();
+  const col = e.range.getColumn();
+  
+  // Only proceed if this is a new row (row > 1) and we're editing in the first few columns
+  if (row > 1 && col <= 5) {
+    try {
+      // Check if checkboxes already exist in this row
+      const setMeetingCell = sheet.getRange(row, 20); // Column T
+      const checkOutCell = sheet.getRange(row, 21);   // Column U
+      
+      // Only add checkboxes if they don't already exist
+      if (setMeetingCell.getValue() === '') {
+        setMeetingCell.insertCheckboxes();
+        Logger.log(`✅ Added checkbox to Set Meeting column (Row ${row}, Column 20)`);
+      }
+      
+      if (checkOutCell.getValue() === '') {
+        checkOutCell.insertCheckboxes();
+        Logger.log(`✅ Added checkbox to Check Out column (Row ${row}, Column 21)`);
+      }
+      
+    } catch (error) {
+      Logger.log(`❌ Error adding checkboxes to row ${row}: ${error.toString()}`);
+    }
+  }
 }
 
 function testSimpleEmail() {
