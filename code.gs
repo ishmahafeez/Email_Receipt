@@ -77,7 +77,7 @@ function handleCheckboxEdit(e) {
         // Duplicate the Google Doc template
         const templateDocId = "1zzJ7jl4n5h741IDiBo4K2Ab9oAHJL-yFdJb0PdhD8gI";
         const templateDoc = DriveApp.getFileById(templateDocId);
-        const newDocName = `Rough Map ${getValue("Character 1")} and ${getValue("Character 2")} of Us Outline`;
+        const newDocName = `Rough  ${getValue("Character 1")} and ${getValue("Character 2")} Map of Us Outline`;
         const newDoc = templateDoc.makeCopy(newDocName);
         
         Logger.log("📄 Created new document: " + newDocName);
@@ -89,7 +89,7 @@ function handleCheckboxEdit(e) {
         
         MailApp.sendEmail({
           to: "ishmmaps@gmail.com",
-          subject: `New Map Document Created: ${newDocName}`,
+          subject: ` ${newDocName}`,
           body: emailBody
         });
         
@@ -199,6 +199,16 @@ function handleCheckboxEdit(e) {
     });
 
     Logger.log("📩 Email sent to: " + email);
+    
+    // Fill in the Check Out Date column (Column V = 22)
+    try {
+      const currentDate = new Date();
+      const formattedCheckoutDate = Utilities.formatDate(currentDate, Session.getScriptTimeZone(), 'M/d/yyyy');
+      sheet.getRange(row, 22).setValue(formattedCheckoutDate);
+      Logger.log("✅ Check Out Date filled in: " + formattedCheckoutDate);
+    } catch (dateError) {
+      Logger.log("❌ Error filling in Check Out Date: " + dateError.toString());
+    }
   }
 }
 
