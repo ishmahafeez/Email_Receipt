@@ -8,8 +8,8 @@ function handleCheckboxEdit(e) {
 
   Logger.log(`Edited cell: Row ${row}, Column ${editedCol}`);
 
-  // Column 20: Set Meeting
-  if (editedCol === 20 && String(newValue).toLowerCase() === 'true') {
+  // Column 21: Set Meeting
+  if (editedCol === 21 && String(newValue).toLowerCase() === 'true') {
     Logger.log("✅ Set Meeting checkbox checked — creating calendar event.");
 
     const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
@@ -140,8 +140,8 @@ function handleCheckboxEdit(e) {
     }
   }
 
-  // Column 21: Check Out (send email)
-  if (editedCol === 21 && String(newValue).toLowerCase() === 'true') {
+  // Column 22: Check Out (send email)
+  if (editedCol === 22 && String(newValue).toLowerCase() === 'true') {
     Logger.log("✅ Checkbox was checked — proceeding to send email.");
 
     const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
@@ -200,11 +200,11 @@ function handleCheckboxEdit(e) {
 
     Logger.log("📩 Email sent to: " + email);
     
-    // Fill in the Check Out Date column (Column V = 22)
+    // Fill in the Check Out Date column (Column W = 23)
     try {
       const currentDate = new Date();
       const formattedCheckoutDate = Utilities.formatDate(currentDate, Session.getScriptTimeZone(), 'M/d/yyyy');
-      sheet.getRange(row, 22).setValue(formattedCheckoutDate);
+      sheet.getRange(row, 23).setValue(formattedCheckoutDate);
       Logger.log("✅ Check Out Date filled in: " + formattedCheckoutDate);
     } catch (dateError) {
       Logger.log("❌ Error filling in Check Out Date: " + dateError.toString());
@@ -233,18 +233,18 @@ function addCheckboxesToNewRow(e) {
   if (row > 1 && col <= 5) {
     try {
       // Check if checkboxes already exist in this row
-      const setMeetingCell = sheet.getRange(row, 20); // Column T
-      const checkOutCell = sheet.getRange(row, 21);   // Column U
+      const setMeetingCell = sheet.getRange(row, 21); // Column U
+      const checkOutCell = sheet.getRange(row, 22);   // Column V
       
       // Only add checkboxes if they don't already exist
       if (setMeetingCell.getValue() === '') {
         setMeetingCell.insertCheckboxes();
-        Logger.log(`✅ Added checkbox to Set Meeting column (Row ${row}, Column 20)`);
+        Logger.log(`✅ Added checkbox to Set Meeting column (Row ${row}, Column 21)`);
       }
       
       if (checkOutCell.getValue() === '') {
         checkOutCell.insertCheckboxes();
-        Logger.log(`✅ Added checkbox to Check Out column (Row ${row}, Column 21)`);
+        Logger.log(`✅ Added checkbox to Check Out column (Row ${row}, Column 22)`);
       }
       
     } catch (error) {

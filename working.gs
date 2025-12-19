@@ -8,8 +8,8 @@ function handleCheckboxEdit(e) {
 
   Logger.log(`Edited cell: Row ${row}, Column ${editedCol}`);
 
-  // Column 20: Set Meeting
-  if (editedCol === 20 && String(newValue).toLowerCase() === 'true') {
+  // Column 21: Set Meeting
+  if (editedCol === 21 && String(newValue).toLowerCase() === 'true') {
     Logger.log("✅ Set Meeting checkbox checked — creating calendar event.");
 
     const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
@@ -119,8 +119,8 @@ function handleCheckboxEdit(e) {
     }
   }
 
-  // Column 21: Check Out (send email)
-  if (editedCol === 21 && String(newValue).toLowerCase() === 'true') {
+  // Column 22: Check Out (send email)
+  if (editedCol === 22 && String(newValue).toLowerCase() === 'true') {
     Logger.log("✅ Checkbox was checked — proceeding to send email.");
 
     const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
