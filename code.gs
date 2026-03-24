@@ -163,7 +163,7 @@ function handleCheckboxEdit(e) {
     let mapLink = getValue("Map Link");
     const price = getValue("Price");
     const framePrice = getValue("Frame Price");
-    const subtotal = getValue("SubTotal");
+    const subtotal = getValue("Total");
     const meetingTime = getValue("Meeting Time");
     const setMeeting = getValue("Set Meeting");
         Logger.log("✅got valuess.");
