@@ -8,8 +8,8 @@ function handleCheckboxEdit(e) {
 
   Logger.log(`Edited cell: Row ${row}, Column ${editedCol}`);
 
-  // Column 21: Set Meeting
-  if (editedCol === 21 && String(newValue).toLowerCase() === 'true') {
+  // Column 22: Set Meeting
+  if (editedCol === 22 && String(newValue).toLowerCase() === 'true') {
     Logger.log("✅ Set Meeting checkbox checked — creating calendar event.");
 
     const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
@@ -140,8 +140,8 @@ function handleCheckboxEdit(e) {
     }
   }
 
-  // Column 22: Check Out (send email)
-  if (editedCol === 22 && String(newValue).toLowerCase() === 'true') {
+  // Column 23: Check Out (send email)
+  if (editedCol === 23 && String(newValue).toLowerCase() === 'true') {
     Logger.log("✅ Checkbox was checked — proceeding to send email.");
 
     const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
@@ -204,7 +204,7 @@ function handleCheckboxEdit(e) {
     try {
       const currentDate = new Date();
       const formattedCheckoutDate = Utilities.formatDate(currentDate, Session.getScriptTimeZone(), 'M/d/yyyy');
-      sheet.getRange(row, 23).setValue(formattedCheckoutDate);
+      sheet.getRange(row, 24).setValue(formattedCheckoutDate);
       Logger.log("✅ Check Out Date filled in: " + formattedCheckoutDate);
     } catch (dateError) {
       Logger.log("❌ Error filling in Check Out Date: " + dateError.toString());
