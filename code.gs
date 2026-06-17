@@ -307,3 +307,21 @@ function testCalendarEvent() {
     return "Error during test: " + error.toString();
   }
 }
+
+//get email on every form submit
+function onFormSubmit(e) {
+  var rowData = e.values;
+
+  var email = rowData[1];        // Column B
+  var mapTemplate = rowData[2];  // Column C
+  var city = rowData[9];         // Column J
+
+  MailApp.sendEmail({
+    to: "ishmmaps@gmail.com",
+    subject: "Map Booking",
+    body:
+      email + " has filled out the booking form.\n" +
+      "City: " + city + "\n" +
+      "Map Template: " + mapTemplate
+  });
+}
