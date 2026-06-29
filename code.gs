@@ -8,7 +8,7 @@ function handleCheckboxEdit(e) {
 
   Logger.log(`Edited cell: Row ${row}, Column ${editedCol}`);
 
-  // Column 22: Set Meeting
+  // Column V 22: Set Meeting
   if (editedCol === 22 && String(newValue).toLowerCase() === 'true') {
     Logger.log("✅ Set Meeting checkbox checked — creating calendar event.");
 
@@ -140,7 +140,7 @@ function handleCheckboxEdit(e) {
     }
   }
 
-  // Column 23: Check Out (send email)
+  // Column W 23: Check Out (send email)
   if (editedCol === 23 && String(newValue).toLowerCase() === 'true') {
     Logger.log("✅ Checkbox was checked — proceeding to send email.");
 
@@ -233,8 +233,8 @@ function addCheckboxesToNewRow(e) {
   if (row > 1 && col <= 5) {
     try {
       // Check if checkboxes already exist in this row
-      const setMeetingCell = sheet.getRange(row, 21); // Column U
-      const checkOutCell = sheet.getRange(row, 22);   // Column V
+      const setMeetingCell = sheet.getRange(row, 22); // Column V
+      const checkOutCell = sheet.getRange(row, 23);   // Column W
       
       // Only add checkboxes if they don't already exist
       if (setMeetingCell.getValue() === '') {
