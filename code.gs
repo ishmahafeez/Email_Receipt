@@ -325,3 +325,30 @@ function onFormSubmit(e) {
       "Map Template: " + mapTemplate
   });
 }
+
+// Create an outline reminder 2 days after the meeting
+const reminderDate = new Date(endDate);
+reminderDate.setDate(reminderDate.getDate() + 2);
+
+// Schedule reminder for 3 PM
+reminderDate.setHours(15, 0, 0, 0);
+
+const reminderEnd = new Date(reminderDate);
+reminderEnd.setMinutes(reminderEnd.getMinutes() + 15);
+
+const reminder = calendar.createEvent(
+  `REMINDER: Send outline to ${getValue("Character 1")} & ${getValue("Character 2")}`,
+  reminderDate,
+  reminderEnd,
+  {
+    description:
+      `Send the Map of Us outline to the client.\n\n` +
+      `Client email: ${email}\n` +
+      `Outline document: ${docUrl}`
+  }
+);
+
+// Notify you 10 minutes before
+reminder.addPopupReminder(10);
+
+Logger.log("Outline reminder created for: " + reminderDate);
